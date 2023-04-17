@@ -1,0 +1,41 @@
+#root, html {
+    background-color: #FFC107;
+}
+
+.card {
+    margin: 10px;
+    width: 25rem;
+    padding: 1rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.app {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#icon {
+    width: 50%;
+}
+
+.img-container {
+    display: flex;
+    justify-content: center;
+}
+
+.title, .subtitle {
+    text-align: center;
+    color: #333333;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 4rem;
+}
