@@ -11,7 +11,7 @@ A new startup, Reactive weather, has hired you to build a web application that r
 - `fetch` and the `useEffect` Hook
 
 ## Part 1: React Components and Props
-**GOAL**: An array of weather data has been provided for you in `data.js`. Update the `WeatherCard` component that will render for each city in the array.
+**GOAL**: An array of weather data has been provided for you in `data.js`. Render a `WeatherCard` in `App.js` for each city in the array and render the data for each city in the `WeatherCard`.
 
 ![Part 1 Exemplar](./exemplars/Part1Exemplar.png)
 
