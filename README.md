@@ -15,7 +15,11 @@ A new startup, Reactive weather, has hired you to build a web application that r
 
 ![Part 1 Exemplar](./exemplars/Part1Exemplar.png)
 
-1. In the root directory, run `npm start` to preview the app. This will refresh every time you save a file. 
+1. In the root directory, run the following to preview the app. This will refresh every time you save a file. 
+    ```shell
+    npm install
+    npm start
+    ```
 2. In `WeatherCard.js`, a card has been made for you, but hasn't been exported. Export the card using `module.exports`.
 3. In `App.js`, import:
     - The `cities` array from `data.js`.
