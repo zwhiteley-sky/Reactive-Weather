@@ -11,6 +11,7 @@ A new startup, Reactive weather, has hired you to build a web application that r
 - `fetch` and the `useEffect` Hook
 
 ## Part 1: React Components and Props
+
 **GOAL**: An array of weather data has been provided for you in `data.js`. Render a `WeatherCard` in `App.js` for each city in the array and render the data for each city in the `WeatherCard`.
 
 ![Part 1 Exemplar](./exemplars/Part1Exemplar.png)
@@ -31,17 +32,26 @@ A new startup, Reactive weather, has hired you to build a web application that r
     - Temperature
     - Forecasted weather conditions
 
+## Part 2: React State and Conditional Rendering
 
-Create a Weather component that takes in a location as props.
-Inside the Weather component, use a third-party API to fetch the current weather for the given location.
+**GOAL**: Complete the following using your knowledge of state and conditional rendering:
+- Adjust the icons to render based on the value stored in forecast (e.g. if it is rainy the rainy icon will render).
+- Create a myLocation component to track the users current location and stores the value in state. This component will update with the weather for the users specific location. We will dynamically update this in future sections!
 
-Display the current weather information (temperature, weather condition, etc.) using a WeatherInfo component.
+**In `components/WeatherCard.js`**:
+1. There are three additional weather icons available in the `assets` folder. Import these at the top of the file just like the `sunny` icon.
+2. Conditionally render the icons based on the value stored in `props.data.forecast`. E.g. If it is "Rainy" than the rainy icon should render. There are multiple ways in which to achieve this output!
 
-## Part 2: React State
+![Part 2 Part A Exemplar](./exemplars/Part2AExemplar.png)
+
+In the `components` folder, create a `myLocation.js` file. 
+
 In this part, you will add the ability to switch between multiple locations by using React state.
 
 Add a state variable to the Weather component to track the current location.
+
 Add a dropdown menu to the Weather component that allows the user to select a different location.
+
 Update the Weather component to fetch the current weather for the selected location when it changes.
 
 ## Part 3: Controlled Inputs
