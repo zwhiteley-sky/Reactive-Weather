@@ -44,15 +44,19 @@ A new startup, Reactive weather, has hired you to build a web application that r
 
 ![Part 2 Part A Exemplar](./exemplars/Part2AExemplar.png)
 
-In the `components` folder, create a `myLocation.js` file. 
+**In `App.js`**:
+> We will be updating this state variable in Part 3. Today we are just working on setting up the functionality for hard coded state values.
+1. At the top of the file, import `useState` from the React library.
+2. Create a new state variable called `location` and state setter function. Initialize it with a value for the city of your choice.
+3. In the `components` folder, create a `Location.js` file. Import this into `App.js`.
+4. Pass the `data`, `location`, and state setter function as props to the `Location` component.
 
-In this part, you will add the ability to switch between multiple locations by using React state.
+**In `components/Location.js`**:
+1. We need to search the `data` array passed as a prop to find the object that has the city that matches our `location` state. Explore how to use [`.find()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) to achieve this.
+2. Once you have found the corresponding data, return a card similar to the one in `WeatherCard.js`. It can look similar to the card below.
+    - **NOTE**: It may help to turn the icon conditional rendering you wrote into a helper function and import it into this component so that you can use DRY principles.
 
-Add a state variable to the Weather component to track the current location.
-
-Add a dropdown menu to the Weather component that allows the user to select a different location.
-
-Update the Weather component to fetch the current weather for the selected location when it changes.
+![Part 2B Exemplar](./exemplars/Part2BExemplar.png)
 
 ## Part 3: Controlled Inputs
 In this part, you will add the ability to search for a location using a controlled input.
