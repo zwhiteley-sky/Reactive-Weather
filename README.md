@@ -110,10 +110,19 @@ The user may submit a location that isn't in the array, we want to make sure tha
 2. Try submitting an incorrect location to verify that your application can handle this input.
 
 ## Part 4: `useEffect` and `fetch`
-In this part, you will add the ability to display a five-day forecast for the selected location using the useEffect hook.
 
-Use a third-party API to fetch the five-day forecast for the selected location.
-Add a state variable to the Weather component to store the fetched forecast data.
-Use the useEffect hook to fetch the data when the component mounts.
-Display the five-day forecast using a new component (e.g. ForecastItem).
-That's it! By completing this project, your adult learners will have practiced creating React components and props, using React state, creating controlled inputs, and using the useEffect hook to fetch data from an external API. They will also have built a useful weather app!
+We want users to be able to search **ANY** location, not just some hard coded data. Luckily, there are many weather APIs we can hook up to our application! Explore the following APIs and decide which one works best for you:
+- [Open Metro](https://open-meteo.com/en/docs) - No API Key required, buy you will need to figure out how to convert locations into coordinates.
+- [AccuWeather](https://developer.accuweather.com/) - API Key required. Make sure to use a `.env` and the `dotenv` package to read environment variables.
+
+This is fairly open ended based on the API you select, but a few things to consider trying.
+1. Select a Weather API from the options above. Explore the documentation for how to access the endpoint and the structure of the data that is returned.
+2. Update the `Location` component with a call that initiates a `fetch` call to your endpoint(s) every time the `location` state is updated.
+    - **NOTE**: You can add a variable to your dependency array for `useEffect` so that it runs only when that variable is updated.
+    ```js
+    useEffect(() => {
+        // DO SOMETHING
+    }, [updatedVariable]) // useEffect only runs when updatedVariable changes.
+    ```
+3. Most of the APIs will require you to either provide coordinate points and/or city IDs in order to Based on the user input, render a 1 day, 5 day, or 10 day forecast.
+4. Allow the user to specify if they want different information like Celsius vs. Fahrenheit or the amount of precipitation. Customize the outputs to respond to these inputs. 
