@@ -114,6 +114,7 @@ The user may submit a location that isn't in the array, we want to make sure tha
 We want users to be able to search **ANY** location, not just some hard coded data. Luckily, there are many weather APIs we can hook up to our application! Explore the following APIs and decide which one works best for you:
 - [Open Metro](https://open-meteo.com/en/docs) - No API Key required, buy you will need to figure out how to convert locations into coordinates.
 - [AccuWeather](https://developer.accuweather.com/) - API Key required. Make sure to use a `.env` and the `dotenv` package to read environment variables.
+- Any other free weather API you can find. Here's a full list of [free weather APIs](https://github.com/public-apis/public-apis#weather)
 
 This is fairly open ended based on the API you select, but a few things to consider trying.
 1. Select a Weather API from the options above. Explore the documentation for how to access the endpoint and the structure of the data that is returned.
