@@ -59,11 +59,55 @@ A new startup, Reactive weather, has hired you to build a web application that r
 ![Part 2B Exemplar](./exemplars/Part2BExemplar.png)
 
 ## Part 3: Controlled Inputs
-In this part, you will add the ability to search for a location using a controlled input.
 
-Add a search bar to the Weather component that allows the user to search for a location.
-Add a state variable to the Weather component to track the value of the search bar.
-Update the Weather component to fetch the current weather for the searched location when the user submits the search.
+**GOAL**: Create a `Form` component that allows users to input their city and the program will output either:
+1. The weather for the city they input
+2. Some message informing the user that city is not in the array.
+
+![Part 3 Exemplar](./exemplars/Part3Exempalr.gif) 
+
+**In `App.js`**:
+1. In the `components` folder, create a `Form.js` file. Import this into `App.js`.
+2. Render the `Form` component near the top of your application. Pass it the `location` state and `setLocation` state setter function as props.
+
+**In `components/Form.js`**:
+1. Destructure the `location` and `setLocation` props.
+2. Return a `<form>` element that has an `<input>` element that will accept a city input and `<button>` element. Feel free to create your own or you can use the template code below:
+
+    ```jsx
+    <div className = "form">
+        <form>
+            <label className = "city">City:
+                <input type="text"/>
+            </label>
+            <button 
+                className = "btn btn-primary" 
+                type="submit"
+            >Submit</button>
+        </form>
+    </div>
+    ```
+
+3. Assign the `<input>` a value of `location` and create an `onChange` event handler that sets the `location` to the current value of the `<input>` using `e.target.value`.
+
+> Try out your form. Oh no! There's an error. Why? Currently the location state is updating every time you type and this is causing the application to error out.
+
+4. Import `useState` from the React library.
+5. Create a new piece of state called `typedLocation` and a state setter function. Initialize it as an empty string.
+6. Update the `<input>` value as `typedLocation`. Update the `onChange` event handler to set `typedLocation` to the current value of `<input>` using `e.target.value`.
+7. Create a `handleSubmit` function that does the following:
+    - Accept the event as a parameter
+    - Prevent the default form behavior using `e.preventDefault()`.
+    - Call `setLocation` and pass it the current value of `typedLocation`.
+    - Reset `typedLocation` to an empty string using the state setter function.
+8. In the `<form>` opening tag, create an `onSubmit` event handler and pass it the `handleSubmit` function. 
+9. Try out the form! It should work for any city in the array and should throw an error if you type a city that doesn't match.
+
+**In components/Location.js**:
+
+The user may submit a location that isn't in the array, we want to make sure that the program can handle this.
+1. If the location is not found in the `data` array, render a message to the user like `"Location not found"` or something similar.
+2. Try submitting an incorrect location to verify that your application can handle this input.
 
 ## Part 4: `useEffect` and `fetch`
 In this part, you will add the ability to display a five-day forecast for the selected location using the useEffect hook.
