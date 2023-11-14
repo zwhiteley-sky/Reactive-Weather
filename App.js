@@ -1,11 +1,41 @@
-import React, { useState } from 'react';
-import cities from "./data";
+import React, { useState, useEffect } from 'react';
+import initial_cities from "./data";
 import WeatherCard from "./components/WeatherCard";
 import Location from "./components/Location";
 
+const names = ["London", "Paris", "Berlin"];
+const url = "https://goweather.herokuapp.com/weather"
+
 function App() {
+    const [cities, set_cities] = useState(initial_cities);
     const [location_input, set_location_input] = useState("");
     const [location, set_location] = useState("London");
+
+    useEffect(() => {
+        const controller = new AbortController();
+        const signal = controller.signal;
+        const cities = [];
+
+        names.forEach(async (name, idx) => {
+            try {
+                const response = await fetch(`${url}/${name}`, { signal });
+                const data = await response.json();
+
+                if (!data.message)
+                    cities.push({
+                        city: name,
+                        temperature: data.temperature,
+                        forecast: data.description
+                    });
+
+                if (idx === names.length - 1) set_cities(cities);
+            } catch (e) {
+                if (!signal.aborted) throw e;
+            }
+        });
+
+        return () => controller.abort();
+    }, []);
 
     function location_handler(event) {
         set_location_input(event.currentTarget.value);

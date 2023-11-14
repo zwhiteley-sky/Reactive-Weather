@@ -7,16 +7,12 @@ import rainy from "../assets/Rainy.svg"
 export default function WeatherCard({ name, temperature, conditions, children }) {
   let icon;
 
-  switch (conditions.toLowerCase()) {
-    case "sunny":
-      icon = sunny; break;
-    case "cloudy":
-      icon = cloudy; break;
-    case "partly cloudy":
-      icon = partly_cloudy; break;
-    case "rainy":
-      icon = rainy; break;
-  }
+  let conds = conditions.toLowerCase();
+
+  if (conds.includes("partly cloudy")) icon = partly_cloudy;
+  else if (conds.includes("cloudy")) icon = cloudy;
+  else if (conds.includes("rain")) icon = rainy;
+  else icon = sunny;
 
   return (
     <div className = "card">
